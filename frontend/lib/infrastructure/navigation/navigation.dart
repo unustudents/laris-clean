@@ -36,5 +36,10 @@ class Nav {
       page: () => const ProfilScreen(),
       binding: ProfilControllerBinding(),
     ),
+    GetPage(
+      name: Routes.PRODUCT,
+      page: () => const ProductScreen(),
+      binding: ProductControllerBinding(),
+    ),
   ];
 }

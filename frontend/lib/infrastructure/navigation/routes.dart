@@ -7,4 +7,5 @@ class Routes {
 
   static const HOME = '/home';
   static const PROFIL = '/profil';
+  static const PRODUCT = '/product';
 }

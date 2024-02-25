@@ -3,17 +3,18 @@ import 'package:get/get.dart';
 import '../models_model.dart';
 
 class ModelsProvider extends GetConnect {
+  final String _uri = "https://api.github.com/users/mp-class-si-unugha-2024";
   @override
   void onInit() {
     httpClient.defaultDecoder = (map) {
       if (map is Map<String, dynamic>) return Models.fromJson(map);
       if (map is List) return map.map((item) => Models.fromJson(item)).toList();
     };
-    httpClient.baseUrl = 'YOUR-API-URL';
+    httpClient.baseUrl = _uri;
   }
 
-  Future<Models?> getModels(int id) async {
-    final response = await get('models/$id');
+  Future<Map<String, dynamic>> getModels() async {
+    final response = await get(_uri);
     return response.body;
   }
 

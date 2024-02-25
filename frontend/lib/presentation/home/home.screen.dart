@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:laris_clean/domain/model/models_model.dart';
 
 import 'controllers/home.controller.dart';
 
@@ -12,11 +13,26 @@ class HomeScreen extends GetView<HomeController> {
       appBar: AppBar(
         title: const Text('HomeScreen'),
       ),
-      body: const Center(
-        child: Text(
-          'HomeScreen is working',
-          style: TextStyle(fontSize: 20),
-        ),
+      body: Obx(
+        () {
+          if (controller.users.isEmpty) {
+            return const Center(child: CircularProgressIndicator());
+          }
+          var data = Models(github: Github.fromJson(controller.users.toJson()));
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(data.github!.login.toString()),
+              Text(data.github!.id.toString()),
+              Text(data.github!.nodeId.toString()),
+              Text(data.github!.avatarUrl.toString()),
+              Text(data.github!.gravatarId.toString()),
+              Text(data.github!.url.toString()),
+              Text(data.github!.htmlUrl.toString()),
+              Text(data.github!.followersUrl.toString()),
+            ],
+          );
+        },
       ),
     );
   }

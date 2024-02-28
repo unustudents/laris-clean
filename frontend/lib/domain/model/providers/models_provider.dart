@@ -13,10 +13,8 @@ class ModelsProvider extends GetConnect {
     httpClient.baseUrl = _uri;
   }
 
-  Future<Map<String, dynamic>> getModels() async {
-    final response = await get(_uri);
-    return response.body;
-  }
+  // Future<Map<String, dynamic>?> getModels() async {
+  Future<Response> getModels() async => await get(_uri);
 
   Future<Response<Models>> postModels(Models models) async =>
       await post('models', models);

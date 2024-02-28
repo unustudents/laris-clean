@@ -15,7 +15,9 @@ class HomeScreen extends GetView<HomeController> {
       ),
       body: Obx(
         () {
-          if (controller.users.isEmpty) {
+          if (controller.isEmpty.isTrue) {
+            return const Center(child: Text("Data tidak ada"));
+          } else if (controller.users.isEmpty) {
             return const Center(child: CircularProgressIndicator());
           }
           var data = Models(github: Github.fromJson(controller.users.toJson()));

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:laris_clean/infrastructure/theme/theme_app.dart';
 
 import 'infrastructure/navigation/navigation.dart';
 import 'infrastructure/navigation/routes.dart';
@@ -20,13 +21,16 @@ class Main extends StatelessWidget {
       initialRoute: initialRoute,
       getPages: Nav.routes,
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        appBarTheme: const AppBarTheme(
-          centerTitle: true,
-          elevation: 10,
-          backgroundColor: Colors.limeAccent,
-        ),
-      ),
+      themeMode: ThemeMode.system,
+      theme: TAppTheme.lightTheme,
+      darkTheme: TAppTheme.darkTheme,
+      // theme: ThemeData(
+      //   appBarTheme: const AppBarTheme(
+      //     centerTitle: true,
+      //     elevation: 10,
+      //     backgroundColor: Colors.limeAccent,
+      //   ),
+      // ),
     );
   }
 }

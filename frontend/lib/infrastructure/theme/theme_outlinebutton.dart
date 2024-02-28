@@ -16,7 +16,7 @@ class TOutlineButton {
     ),
   );
 
-  static OutlinedButtonThemeData dartOutlinedButtonTheme =
+  static OutlinedButtonThemeData darkOutlinedButtonTheme =
       OutlinedButtonThemeData(
     style: OutlinedButton.styleFrom(
       elevation: 0,
